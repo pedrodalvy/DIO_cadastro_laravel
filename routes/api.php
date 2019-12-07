@@ -2,7 +2,7 @@
 
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Model\Usuario;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,12 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(static function () {
     Route::get('lista', static function () {
-        return ['a', 'b', 'c'];
+        return Usuario::listar(10);
     });
 
-    Route::post('cadastra', static function () {
-        echo 'implementar';
-    });
+    Route::post('cadastra', 'API\Usuario@salvar');
 });
 
 Route::prefix('v2')->group(static function () {

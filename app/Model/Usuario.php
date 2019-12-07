@@ -19,10 +19,11 @@ class Usuario extends Model
             'id',
             'nome',
             'email',
+            'senha',
             'data_cadastro'
         ])->limit($limite);
 
-        dd($sql->toSql());
+        return $sql->get();
     }
 
     public static function cadastrar(Request $request)
